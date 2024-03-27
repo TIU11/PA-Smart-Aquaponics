@@ -100,7 +100,8 @@ lcd.setBacklight(0.25)
 lcd.writeBitmap(64, 0, 64, 64, plant)
 
 def checkMoisture():
-    if soil < 0.95:
+    checkSoil = soil.getVoltageRatio()
+    if checkSoil < 0.95:
         pump.setState(True)
         time.sleep(5)
         pump.setState(False)
